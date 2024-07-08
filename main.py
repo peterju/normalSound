@@ -14,10 +14,10 @@ CONFIG_FILE = 'config.ini'
 
 def load_config() -> configparser.ConfigParser:
     """
-    讀取配置文件，如果不存在則建立預設配置。
+    讀取設定檔，如果不存在則建立預設設定。
 
     傳回:
-        configparser.ConfigParser: 包含配置訊息的物件。
+        configparser.ConfigParser: 包含設定訊息的物件。
     """
     config = configparser.ConfigParser()
     if os.path.exists(CONFIG_FILE):
@@ -29,10 +29,10 @@ def load_config() -> configparser.ConfigParser:
 
 def save_config(config: configparser.ConfigParser) -> None:
     """
-    保存設定到配置文件。
+    保存設定到設定檔。
 
     參數:
-        config (configparser.ConfigParser): 要保存的配置物件。
+        config (configparser.ConfigParser): 要保存的設定物件。
     """
     with open(CONFIG_FILE, 'w') as configfile:
         config.write(configfile)
@@ -163,7 +163,7 @@ def drop(event: tk.Event) -> None:
             files_text.insert(tk.END, f"{file}\n")
 
 
-# 載入配置
+# 載入設定
 config = load_config()
 
 # 建立主窗口
@@ -237,7 +237,7 @@ button_process.grid(row=6, column=2, sticky=tk.E, pady=3)
 files_text.drop_target_register(DND_FILES)
 files_text.dnd_bind('<<Drop>>', drop)
 
-# 配置 grid 權重
+# 設定 grid 權重
 frame.columnconfigure(1, weight=1)
 frame.rowconfigure(1, weight=1)
 
